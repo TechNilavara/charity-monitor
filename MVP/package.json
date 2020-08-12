@@ -1,0 +1,20 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "MVP for charity monitor",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TechCrypt/charity-monitor/tree/master/MVP"
+  },
+  "author": "007alans",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "q": "^1.5.1"
+  }
+}

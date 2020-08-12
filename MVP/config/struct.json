@@ -1,0 +1,129 @@
+{
+    "name" : "charity_monitor_mvp",
+    "version" : "1.0",
+    "path" : {
+        "/home" : {
+            "get" : {
+                "summary" : "Get summary of all the NGOs in the system.",
+                "id" : "get_all",
+                "parameters" : {},
+                "response" : {
+                    "200" : {
+                        "description" : "ok",
+                        "schema" : {
+                            "type" : "array",
+                            "item" : ["#def/collection"]
+                        }
+                    }
+                }
+            }
+
+        },
+        "/signup" : {
+            "post" : {
+                "summary" : "Signup data send from client to server and added to DB",
+                "id" : "signUp",
+                "parameters" : {
+                    "body" : {
+                        "ngo" : {
+                            "schema" : {
+                                "type" : "object",
+                                "item" : ["#def/NgoSignUp"]
+                            }
+                        },
+                        "donor" : {
+                            "schema" : {
+                                "type" : "object",
+                                "item" : ["#def/donorSignUp"]
+                            }
+                        }
+                    }
+                },
+                "response" : {
+                    "200" : {
+                        "description" : "ok"
+                    },
+                    "100" : {
+                        "description" : "Email Id already registered"
+                    },
+                    "110" : {
+                        "description" : "Number already registered"
+                    },
+                    "120" : {
+                        "description" : "Username already registered"
+                    }
+                }
+            }
+        },
+        "/signin" : {
+            "post" : {
+                "summary" : "Signin data send from client to server for authenticaton",
+                "id" : "signIn",
+                "parameters" : {
+                    "body": {                   
+                        "schema" : {
+                            "item" : ["#def/signIn"],
+                            "type" : "object"
+                        }
+                    }
+                },
+                "response" : {
+                    "200" : {
+                        "description" : "ok"
+                    },
+                    "130" : {
+                        "description" : "invalid username/password"
+                    }
+                }
+            }
+        }
+    },
+    "def" : {
+        "signIn" : {
+            "summary" : "Data for NGO/donor SignIn",
+            "type" : "object",
+            "property" : {
+                "username" : ["string"],
+                "password" : ["string"]
+            }
+        },
+        "donorSignUp" : {
+            "summary" : "Data for non NGO SignUp",
+            "type" : "object",
+            "item" : ["#def/signIn","#def/donorSummary"]
+        },
+        "donorSummary" : {
+            "summary" :"Document for donor summary",
+            "type" : "object",
+            "property" : {
+                "firstname" : ["string"],
+                "lastname" : ["String"],
+                "emailid" : ["string, optional"],
+                "number" : ["int, optional"]
+            }
+        },
+        "NgoSignUp" : {
+            "summary" : "Data for NGO SignUp",
+            "type" : "object",
+            "item" : ["#def/signIn", "#def/NgoSummary"]
+        },
+        "collection" : {
+            "summary" : "Array of documents in collection",
+            "type" : "array",
+            "item" : ["#def/NgoSummary"]
+        },
+        "NgoSummary" : {
+            "summary" : "Document for NGO summary",
+            "type" : "object",
+            "property" : {
+                "NGO Name" : ["string"],
+                "NGO ID" : ["string"],
+                "NGO Address" : ["string, optional"],
+                "state" : ["string"],
+                "type" : ["string"],
+                "email" : ["string, optional"],
+                "number" : ["int, optional"]
+            }
+        }
+    }
+}
