@@ -1,0 +1,10 @@
+{
+    "200":"Ok",
+    "100":"Email registered",
+    "110":"Number registered",
+    "120":"Username registered",
+    "140":"Invalid request",
+    "150":"Username not found",
+    "160":"Unknown error",
+    "170":"Username/Password wrong"
+}
