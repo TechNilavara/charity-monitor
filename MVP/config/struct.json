@@ -69,7 +69,11 @@
                 },
                 "response" : {
                     "200" : {
-                        "description" : "ok"
+                        "description" : "ok",
+                        "schema" : {
+                            "item": ["#def/acessGranded"],
+                            "type" : "object"
+                        }
                     },
                     "130" : {
                         "description" : "invalid username/password"
@@ -79,6 +83,15 @@
         }
     },
     "def" : {
+        "acessGranded":{
+            "summary" : "Data send after sucessful login",
+            "type" : "object",
+            "property" :{
+                "token" : ["string"],
+                "expires": ["int"],
+                "user" : ["#def/NgoSummary or #def/donorSummary"]
+            }
+        },
         "signIn" : {
             "summary" : "Data for NGO/donor SignIn",
             "type" : "object",

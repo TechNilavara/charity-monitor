@@ -18,6 +18,8 @@ function hash_pswd(password){
 function post(){
     var type = Object.keys(l_params)
     var user_data = {}
+
+    //username and password to user_data
     Object.assign(user_data, {'username': l_params[type].emailid})
     Object.assign(user_data, {'password':l_params[type].password})
     delete l_params[type].username
@@ -26,22 +28,31 @@ function post(){
     summary_collect = new global.client.collection('test',collect_name)
     user_collect = new global.client.collection('test', 'auth0')
     login_collect = new global.client.collection('test','login')
+    
+    //add user to summary collection
     summary_collect.add_item(l_params[type],function(data){
        if (11000 == data.code){
             event.emit('complete', {'err':'100'})
        }
+       //if new user continue else error
        else{
             summary_id = data.ops[0]._id;
             password = user_data.password
+
+            //hash password and replace password in user data
             password = hash_pswd(password)
             user_data.password = password
+
+            //add username and password to auth0
             user_collect.add_item(user_data, function(data){
                 if (11000 == data.code) event.emit('complete', {'err':'120'})
+                //if new user add and continue
                 else {
                     login_data = {}
                     login_data.summary_id = summary_id
-                    login_data.user_id = data.ops[0]._id;
+                    login_data.username = user_data.username;
                     login_data.user_type = type[0]
+                    //add user name and summary id to login db
                     login_collect.add_item(login_data, function(data){
                         if (11000 == data.code) event.emit('complete', {'err':'150'})
                         else event.emit('complete', {'status':'200'})

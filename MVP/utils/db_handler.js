@@ -44,11 +44,14 @@ class collection{
         }.bind(this))
     }
     
-    delete(item){
+    delete(item,callback=this.print){
         this.collect.deleteOne(item, function(err,obj){
             if (err) throw err;
-            console.log(obj.result.n," item(s) deleted with ", item)
+            callback(obj)
         })
+    }
+    print(obj){
+        console.log(obj.result.n," item(s) deleted")
     }
 }
 
