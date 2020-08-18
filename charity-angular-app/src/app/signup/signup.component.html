@@ -1,0 +1,186 @@
+<mat-card class="my-card">
+    <form (ngSubmit)="signup()" #Form="ngForm" class="my-form">
+      <mat-card-content>
+        <h2>Sign Up</h2>
+        
+        <button [ngClass]="{'test': newColor1}" (click)="selectngo()" mat-raised-button>NGOs</button>
+        <button [ngClass]="{'test': newColor2}" (click)="selectdonor()" mat-raised-button  id="button2">Donors</button>
+
+        <div *ngIf="ngo">
+            <mat-form-field class="full-width">
+                <mat-label>Name</mat-label>
+                <input  matInput  placeholder="Name" name="name" type="text"
+                required
+                [(ngModel)]="ngo_data.NGO_name"
+                #name="ngModel">
+                <button mat-button *ngIf="ngo_data.NGO_name" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.NGO_name=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Address</mat-label>
+                <input  matInput  placeholder="Address" name="address" type="text"   
+                [(ngModel)]="ngo_data.NGO_Address"
+                #address="ngModel">
+                <button mat-button *ngIf="ngo_data.NGO_Address" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.NGO_Address=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>State</mat-label>
+                <input  matInput  placeholder="State" name="state" type="text"
+                required
+                [(ngModel)]="ngo_data.state"
+                #state="ngModel">
+                <button mat-button *ngIf="ngo_data.state" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.state=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Type</mat-label>
+                <input  matInput  placeholder="Type" name="type" type="text"
+                required
+                [(ngModel)]="ngo_data.type"
+                #type="ngModel">
+                <button mat-button *ngIf="ngo_data.type" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.type=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input  matInput  placeholder="Email" name="email" type="text"
+                required
+                [(ngModel)]="ngo_data.email"
+                #email="ngModel">
+                <button mat-button *ngIf="ngo_data.email" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.email=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Number</mat-label>
+                <input  matInput  placeholder="Number" name="number" type="number"
+                [(ngModel)]="ngo_data.number"
+                #id="ngModel">
+                <button mat-button *ngIf="ngo_data.number" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.number=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>ID</mat-label>
+                <input  matInput  placeholder="ID" name="id" type="text"
+                required
+                [(ngModel)]="ngo_data.NGO_ID"
+                #id="ngModel">
+                <button mat-button *ngIf="ngo_data.NGO_ID" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.NGO_ID=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Username</mat-label>
+                <input  matInput  placeholder="Username" name="username" type="text"
+                required
+                [(ngModel)]="ngo_data.username"
+                #username="ngModel">
+                <button mat-button *ngIf="ngo_data.username" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.username=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+                <mat-hint [hidden]= "username_valid" >Username already taken</mat-hint>
+              </mat-form-field>
+      
+              <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input  matInput  placeholder="Password" type="password"
+                required
+                [(ngModel)]="ngo_data.password"  name="password"
+                #password="ngModel">
+                <button mat-button *ngIf="ngo_data.password" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.password=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+                <mat-hint [hidden]= "passwd_valid">Incorrect password</mat-hint>
+              </mat-form-field>
+        </div>
+        <div *ngIf="!ngo">
+            <mat-form-field class="full-width">
+                <mat-label>First Name</mat-label>
+                <input  matInput  placeholder="First Name" name="fname" type="text"
+                required
+                [(ngModel)]="donor_data.firstname"
+                #fname="ngModel">
+                <button mat-button *ngIf="donor_data.firstname" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.firstname=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Last Name</mat-label>
+                <input  matInput  placeholder="Last Name" name="lname" type="text"   
+                [(ngModel)]="donor_data.lastname"
+                #lname="ngModel">
+                <button mat-button *ngIf="donor_data.lastname" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.lastname=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input  matInput  placeholder="Email" name="email" type="text"
+                
+                [(ngModel)]="ngo_data.email"
+                #email="ngModel">
+                <button mat-button *ngIf="ngo_data.email" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.email=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Number</mat-label>
+                <input  matInput  placeholder="Number" name="number" type="number"
+                [(ngModel)]="ngo_data.number"
+                #id="ngModel">
+                <button mat-button *ngIf="ngo_data.number" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.number=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Username</mat-label>
+                <input  matInput  placeholder="Username" name="username" type="text"
+                required
+                [(ngModel)]="ngo_data.username"
+                #username="ngModel">
+                <button mat-button *ngIf="ngo_data.username" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.username=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+                <mat-hint [hidden]= "username_valid" >Username already taken</mat-hint>
+              </mat-form-field>
+      
+              <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input  matInput  placeholder="Password" type="password"
+                required
+                [(ngModel)]="ngo_data.password"  name="password"
+                #password="ngModel">
+                <button mat-button *ngIf="ngo_data.password" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.password=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+                <mat-hint [hidden]= "passwd_valid">Incorrect password</mat-hint>
+              </mat-form-field>
+        </div>
+
+        
+      </mat-card-content>
+     
+      <mat-card-actions>
+          <button mat-raised-button (click)="signup()" color="primary" [disabled]="!Form.form.valid">Sign up</button>
+          <button mat-raised-button  id="btn-btn2" (click)="Form.reset(); ">Reset</button>
+      </mat-card-actions>
+    </form>
+  
+  </mat-card>

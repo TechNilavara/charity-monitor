@@ -1,0 +1,20 @@
+<mat-toolbar>
+   <mat-toolbar-row>
+    <span id="App-title">Charity App</span>
+    <span class="menu-spacer"></span>
+    <div id="menu">
+      <a mat-raised-button [routerLink]="'/home'"> Home </a>
+      <a mat-raised-button [routerLink]="'#'"> About </a>
+      <a mat-raised-button [routerLink]="'#'"> Features </a>
+      <a mat-raised-button [routerLink]="'#'"> HowTo </a>
+      <a mat-raised-button [routerLink]="'#'"> FAQs </a>
+      <a mat-raised-button [routerLink]="'/signin'"> Sign In </a>
+      <a mat-raised-button [routerLink]="'/signup'"> Sign Up </a>
+    </div>
+    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

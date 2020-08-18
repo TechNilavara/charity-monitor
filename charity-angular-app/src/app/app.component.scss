@@ -1,0 +1,26 @@
+html{
+    font-family: "helvetica neue", "Arial", sans-serif;
+}
+mat-toolbar{
+    background-color: none;
+}
+#App-title{
+    margin-left: 50px;
+    font-weight: 500;
+}
+#menu{
+    margin:auto;
+    margin-left: 25%;
+}
+
+#menu a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: grey;
+    font-family: sans-serif;
+}
+
+#menu .mat-button-base{
+    margin: 8px 8px 8px 0;
+
+}
