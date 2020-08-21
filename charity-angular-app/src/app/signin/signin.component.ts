@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { signin_data } from '../dataformats';
 import { AuthorizationService } from '../authorization.service';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class SigninComponent implements OnInit {
   passwd_valid = true;
   post_response: any;
   
-  signin()  {
+  signin(form: NgForm)  {
     this.auth.AuthUser(this.data).subscribe(
       (res) => this.post_response = res,
       (err) => console.log(err)
