@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { signin_data } from '../dataformats';
 import { AuthorizationService } from '../authorization.service';
+
 
 @Component({
   selector: 'app-signin',
@@ -13,10 +13,9 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  constructor(private httpClient: HttpClient) { }
+  constructor(private auth: AuthorizationService) { }
 
-  URL_MOD = "/signin";
-
+ 
   
   data: signin_data = {username:"", password:""};
 
@@ -24,7 +23,6 @@ export class SigninComponent implements OnInit {
   username_valid = true;
   passwd_valid = true;
   post_response: any;
-  auth: AuthorizationService;
   
   signin()  {
     this.auth.AuthUser(this.data).subscribe(

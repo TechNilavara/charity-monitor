@@ -10,7 +10,7 @@ import { AuthorizationService } from '../authorization.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthorizationService) { }
 
   ngOnInit(): void {
   }
@@ -36,7 +36,6 @@ export class SignupComponent implements OnInit {
     emailid: "",
     number: 0};
 
-  auth: AuthorizationService;
   post_response: any;
 
   signup(){

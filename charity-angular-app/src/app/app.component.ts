@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { main_data } from './dataformats';
 import { NgoDataService } from './ngo-data.service';
 
@@ -11,10 +10,9 @@ import { NgoDataService } from './ngo-data.service';
 export class AppComponent implements OnInit {
 
   title = 'charity-angular-app';
-  constructor(private httpClient: HttpClient){}
+  constructor(private data_service: NgoDataService){}
   data : main_data[];
   NGO_name: string[];
-  data_service: NgoDataService;
 
 
   ngOnInit(): void {
