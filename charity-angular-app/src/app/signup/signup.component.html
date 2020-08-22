@@ -167,7 +167,7 @@
                 required
                 [(ngModel)]="donor_data.password"  name="password"
                 #password="ngModel">
-                <button mat-button *ngIf="ngo_data.password" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.password=''">
+                <button mat-button *ngIf="donor_data.password" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.password=''">
                   <mat-icon>close</mat-icon>
                 </button>
                 <mat-hint [hidden]= "passwd_valid">Incorrect password</mat-hint>
