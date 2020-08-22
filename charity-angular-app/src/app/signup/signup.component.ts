@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NGO_signup_data, Donor_signup_data } from '../dataformats';
 import { AuthorizationService } from '../authorization.service';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
 
   post_response: any;
 
-  signup(){
+  signup(form: NgForm){
     if(this.ngo){
         let data = { "ngo": this.ngo_data};
         this.auth.UploadNGO(data).subscribe(

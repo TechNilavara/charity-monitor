@@ -1,5 +1,5 @@
 <mat-card class="my-card">
-    <form (ngSubmit)="signup()" #Form="ngForm" class="my-form">
+    <form (ngSubmit)="signup(Form)" #Form="ngForm" class="my-form">
       <mat-card-content>
         <h2>Sign Up</h2>
         
@@ -178,8 +178,8 @@
       </mat-card-content>
      
       <mat-card-actions>
-          <button mat-raised-button (click)="signup()" color="primary" [disabled]="!Form.form.valid">Sign up</button>
-          <button mat-raised-button  id="btn-btn2" (click)="Form.reset(); ">Reset</button>
+          <button mat-raised-button type="submit" color="primary" [disabled]="!Form.form.valid">Sign up</button>
+          <button mat-raised-button  type= "reset" id="btn-btn2" (click)="Form.reset(); ">Reset</button>
       </mat-card-actions>
     </form>
   
