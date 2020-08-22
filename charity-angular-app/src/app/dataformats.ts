@@ -30,6 +30,6 @@ export interface Donor_signup_data{
     password: string;
     firstname : string;
     lastname : string;
-    emailid ?: string;
+    email ?: string;
     number ?: number;
 }

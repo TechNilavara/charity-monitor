@@ -132,9 +132,9 @@
                 <mat-label>Email</mat-label>
                 <input  matInput  placeholder="Email" name="email" type="text"
                 
-                [(ngModel)]="ngo_data.email"
+                [(ngModel)]="donor_data.email"
                 #email="ngModel">
-                <button mat-button *ngIf="ngo_data.email" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.email=''">
+                <button mat-button *ngIf="donor_data.email" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.email=''">
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
@@ -142,9 +142,9 @@
               <mat-form-field class="full-width">
                 <mat-label>Number</mat-label>
                 <input  matInput  placeholder="Number" name="number" type="number"
-                [(ngModel)]="ngo_data.number"
+                [(ngModel)]="donor_data.number"
                 #id="ngModel">
-                <button mat-button *ngIf="ngo_data.number" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.number=''">
+                <button mat-button *ngIf="donor_data.number" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.number=''">
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
@@ -153,9 +153,9 @@
                 <mat-label>Username</mat-label>
                 <input  matInput  placeholder="Username" name="username" type="text"
                 required
-                [(ngModel)]="ngo_data.username"
+                [(ngModel)]="donor_data.username"
                 #username="ngModel">
-                <button mat-button *ngIf="ngo_data.username" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.username=''">
+                <button mat-button *ngIf="donor_data.username" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.username=''">
                   <mat-icon>close</mat-icon>
                 </button>
                 <mat-hint [hidden]= "username_valid" >Username already taken</mat-hint>
@@ -165,9 +165,9 @@
                 <mat-label>Password</mat-label>
                 <input  matInput  placeholder="Password" type="password"
                 required
-                [(ngModel)]="ngo_data.password"  name="password"
+                [(ngModel)]="donor_data.password"  name="password"
                 #password="ngModel">
-                <button mat-button *ngIf="ngo_data.password" matSuffix mat-icon-button aria-label="Clear" (click)="ngo_data.password=''">
+                <button mat-button *ngIf="ngo_data.password" matSuffix mat-icon-button aria-label="Clear" (click)="donor_data.password=''">
                   <mat-icon>close</mat-icon>
                 </button>
                 <mat-hint [hidden]= "passwd_valid">Incorrect password</mat-hint>
