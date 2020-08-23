@@ -17,16 +17,20 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("initialising .....")
-    this.data_service.Getdata().subscribe((data)=> this.data= data);
-    if(typeof(this.data)=='object' && this.data)
-    {
-      if(this.data.length != 0){
-        for(var i=0; i< this.data.length; i++)
-      {
-        this.NGO_name.push(this.data[i].NGO_name);
-      }
-      }
-    }
-
+    this.data_service.Getdata().subscribe(
+      (data)=> {
+        this.NGO_name = []
+        this.data= data;
+        if(typeof(this.data)=='object' && this.data)
+        {
+          if(this.data.length != 0){
+            for(var i=0; i< this.data.length; i++)
+          {
+            this.NGO_name.push(this.data[i].NGO_name);
+          }
+          }
+        }
+        console.log(this.NGO_name)
+      });
   }
 }

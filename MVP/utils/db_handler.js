@@ -27,7 +27,7 @@ class collection{
             else callback(obj)
         })
     }
-    
+
     find_item(item, callback){
         this.collect.findOne(item, function(err, data){
             if (data == null) callback({'err':'101'});  
@@ -43,11 +43,28 @@ class collection{
             callback();
         }.bind(this))
     }
+
+    purge(callback=this.print){
+        this.load_collection(function(){
+            for(var i of this.documents){
+                this.delete({'_id':i._id})
+            }
+            callback("done")
+        }.bind(this))
+        
+    }
+
+    remove(item, callback=this.print){
+        this.collect.deleteMany(item, function(err, result){
+            if(err) callback(err)
+            else callback(result)
+        })
+    }
     
     delete(item,callback=this.print){
         this.collect.deleteOne(item, function(err,obj){
-            if (err) throw err;
-            callback(obj)
+            if (err) callback(err);
+            else callback(obj)
         })
     }
     print(obj){

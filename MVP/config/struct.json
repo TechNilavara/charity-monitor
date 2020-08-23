@@ -111,7 +111,7 @@
             "property" : {
                 "firstname" : ["string"],
                 "lastname" : ["String"],
-                "emailid" : ["string, optional"],
+                "email" : ["string, optional"],
                 "number" : ["int, optional"]
             }
         },
@@ -129,9 +129,9 @@
             "summary" : "Document for NGO summary",
             "type" : "object",
             "property" : {
-                "NGO Name" : ["string"],
-                "NGO ID" : ["string"],
-                "NGO Address" : ["string, optional"],
+                "NGO_name" : ["string"],
+                "NGO_ID" : ["string"],
+                "NGO_Address" : ["string, optional"],
                 "state" : ["string"],
                 "type" : ["string"],
                 "email" : ["string, optional"],

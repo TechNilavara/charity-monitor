@@ -36,15 +36,15 @@ App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({extended: true}));
 
 App.use(function(req, res, next){
-    Object.assign(req.body, {"access_token":
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJleGFtcGxlQHh5ei5jb20iLCJleHAiOjE1OTc0OTE2OTI5NzV9.vziHqm3UaG9ovsRGuoz0pGQE3oDmD1PK5dlsFMEmR6U"})
+    global.access_crtl = 'guest'
+    //Object.assign(req.body, {"access_token":
+    //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJleGFtcGxlQHh5ei5jb20iLCJleHAiOjE1OTc0OTE2OTI5NzV9.vziHqm3UaG9ovsRGuoz0pGQE3oDmD1PK5dlsFMEmR6U"})
     var parsed_url = url.parse(req.url, true)
     var token = (req.body && req.body.access_token)
      || parsed_url.query.access_token || req.headers["x-access-token"];
 
     if (token) {
       token_handel.get_access(req.body.access_token, function(){
-        console.log(global.access_crtl)
         delete req.body.access_token
         if(global.access_crtl == 'invalid')
           res.json({'err':'000'})
@@ -58,6 +58,7 @@ App.use(function(req, res, next) {
     //body = req.body
     //req.body = {}
     //Object.assign(req.body, {'donor':body})
+    //console.log(global.access_crtl)
     filer.log(req)
     struct(req, res,{
         'api' : path.resolve('../config/struct.json')    

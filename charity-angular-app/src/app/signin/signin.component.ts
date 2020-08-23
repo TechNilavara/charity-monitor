@@ -27,12 +27,15 @@ export class SigninComponent implements OnInit {
   
   signin(form: NgForm)  {
     this.auth.AuthUser(this.data).subscribe(
-      (res) => this.post_response = res,
+      (res) => {
+        this.post_response = res;
+        console.log(this.post_response.token);
+        console.log(this.post_response.user)
+      },
       (err) => console.log(err)
     );
       console.log("Data Submitted..");
       console.log(this.data.password);
-      console.log(this.post_response);
       /*
       if(typeof(this.post_response)=='object' && this.post_response)
         if('err' in this.post_response)

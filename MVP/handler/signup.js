@@ -18,9 +18,9 @@ function hash_pswd(password){
 function post(){
     var type = Object.keys(l_params)
     var user_data = {}
-
+    console.log(l_params)
     //username and password to user_data
-    Object.assign(user_data, {'username': l_params[type].emailid})
+    Object.assign(user_data, {'username': l_params[type].username})
     Object.assign(user_data, {'password':l_params[type].password})
     delete l_params[type].username
     delete l_params[type].password
@@ -45,7 +45,12 @@ function post(){
 
             //add username and password to auth0
             user_collect.add_item(user_data, function(data){
-                if (11000 == data.code) event.emit('complete', {'err':'120'})
+                if (11000 == data.code){
+                    //delete user summary
+                    summary_collect.delete({'email':l_params[type].email},function(){
+                        event.emit('complete', {'err':'120'})
+                    })
+                }
                 //if new user add and continue
                 else {
                     login_data = {}

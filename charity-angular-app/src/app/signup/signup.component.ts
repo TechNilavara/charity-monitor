@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
     password: "",
     firstname : "",
     lastname : "",
-    emailid: "",
+    email: "",
     number: 0};
 
   post_response: any;
@@ -43,20 +43,24 @@ export class SignupComponent implements OnInit {
     if(this.ngo){
         let data = { "ngo": this.ngo_data};
         this.auth.UploadNGO(data).subscribe(
-          (res) => this.post_response = res,
+          (res) => {
+            this.post_response = res;
+            console.log(this.post_response);
+          },
           (err) => console.log(err)
         );
           console.log("Data Submitted..");
-          console.log(this.post_response);
     }
     else{
         let data = {"donor": this.donor_data};
         this.auth.UploadDonor(data).subscribe(
-          (res) => this.post_response = res,
+          (res) => {
+            this.post_response = res;            
+            console.log(this.post_response);
+          },
           (err) => console.log(err)
         );
           console.log("Data Submitted..");
-          console.log(this.post_response);
     }
 
   }

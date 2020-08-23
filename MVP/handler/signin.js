@@ -30,7 +30,7 @@ function post(){
     var user_data = {}, collect_name, passwd;
 
     //username and password to user_data
-    Object.assign(user_data, {'username': l_params.emailid})
+    Object.assign(user_data, {'username': l_params.username})
     Object.assign(user_data, {'password':l_params.password})
     
     user_collect = new global.client.collection('test', 'auth0')
